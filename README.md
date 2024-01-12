@@ -1,12 +1,14 @@
 # Laravel Eloquent: Eager Load Pivot Relations
 
+Note: This is a fork of [ajcastro/eager-load-pivot-relations](https://github.com/ajcastro/eager-load-pivot-relations) with support for Laravel 8 and above, also coded by ajcastro. Many thanks to the original author for this package and his work.
+
 Eager load pivot relations for Laravel Eloquent's BelongsToMany relation.  
 Medium Story: https://medium.com/@ajcastro29/laravel-eloquent-eager-load-pivot-relations-dba579f3fd3a
 
 ## Installation
 
 ```
-composer require ajcastro/eager-load-pivot-relations
+composer require audunru/eager-load-pivot-relations
 ```
 
 ## Usage and Example
@@ -99,7 +101,7 @@ return Plan::with([
 
 ## Custom Pivot Accessor
 
-You can customize the __"pivot accessor"__, so instead of using the keyword `pivot`, we can declare it as `planItem`.
+You can customize the **"pivot accessor"**, so instead of using the keyword `pivot`, we can declare it as `planItem`.
 Just chain the `as()` method in the definition of the `BelongsToMany` relation.
 
 ```php
@@ -116,7 +118,7 @@ class Plan extends \Eloquent
 ```
 
 Make sure we also use the trait
-to our main model which is the `Plan` model, because the package needs to acess 
+to our main model which is the `Plan` model, because the package needs to acess
 the belongsToMany relation (`items` relation) to recognize the used pivot acessor.
 
 ```php
@@ -132,6 +134,7 @@ So instead of using `pivot`, we can eager load it by defined pivot accessor `pla
 ```php
 return Plan::with('items.planItem.unit')->get();
 ```
+
 ```php
 $plan = Plan::with('items.planItem.unit');
 foreach ($plan->items as $item) {
@@ -141,4 +144,5 @@ foreach ($plan->items as $item) {
 ```
 
 ## Other Examples and Use-cases
+
 https://github.com/ajcastro/eager-load-pivot-relations-examples
