@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/audunru/eager-load-pivot-relations/compare/v1.0.0...v2.0.0) (2024-01-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Now requires Laravel 10 and PHP 8.1 minimum
+
+### Miscellaneous Chores
+
+* code style and documentation tweaks ([#3](https://github.com/audunru/eager-load-pivot-relations/issues/3)) ([40bbeba](https://github.com/audunru/eager-load-pivot-relations/commit/40bbeba7e92480232d6eb7ba4c68e393a3f8365b))
+* update dependencies for laravel 10 ([1c5c1b9](https://github.com/audunru/eager-load-pivot-relations/commit/1c5c1b9cd827fee9627e923def42fe57c37d74a9))
+
 ## 1.0.0 (2024-01-12)
 
 
