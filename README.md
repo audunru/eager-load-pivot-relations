@@ -1,5 +1,9 @@
 # Laravel Eloquent: Eager Load Pivot Relations
 
+[![Build Status](https://github.com/audunru/eager-load-pivot-relations/actions/workflows/validate.yml/badge.svg)](https://github.com/audunru/eager-load-pivot-relations/actions/workflows/validate.yml)
+[![Coverage Status](https://coveralls.io/repos/github/audunru/eager-load-pivot-relations/badge.svg?branch=master)](https://coveralls.io/github/audunru/eager-load-pivot-relations?branch=master)
+[![StyleCI](https://github.styleci.io/repos/735654975/shield?branch=master)](https://github.styleci.io/repos/735654975)
+
 Note: This is a fork of [ajcastro/eager-load-pivot-relations](https://github.com/ajcastro/eager-load-pivot-relations) with support for Laravel 8 and above, also coded by ajcastro. Many thanks to the original author for this package and his work.
 
 Eager load pivot relations for Laravel Eloquent's BelongsToMany relation.  
