@@ -1,2 +1,7 @@
 version: 8.1
 preset: laravel
+enabled:
+  - align_double_arrow
+disabled:
+  - laravel_phpdoc_alignment
+  - laravel_phpdoc_separation
