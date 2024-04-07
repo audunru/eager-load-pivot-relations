@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/audunru/eager-load-pivot-relations/compare/v2.0.0...v2.0.1) (2024-04-07)
+
+
+### Miscellaneous Chores
+
+* update dependencies ([40e44a9](https://github.com/audunru/eager-load-pivot-relations/commit/40e44a93658639e98d9cf0e49e7e43e2fe7f0fbb))
+
 ## [2.0.0](https://github.com/audunru/eager-load-pivot-relations/compare/v1.0.0...v2.0.0) (2024-01-13)
 
 
