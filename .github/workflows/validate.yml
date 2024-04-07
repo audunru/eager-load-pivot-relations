@@ -28,8 +28,8 @@ jobs:
       - name: Setup PHP with PECL extension
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.1"
-          # Taken from https://github.com/kirschbaum-development/laravel-test-runner-container/blob/master/8.1/Dockerfile
+          php-version: "8.2"
+          # Taken from https://github.com/kirschbaum-development/laravel-test-runner-container/blob/master/8.2/Dockerfile
           extensions: mbstring, mysql, xml, xsl, zip, curl, bcmath, intl, bz2
 
       - name: Install composer dependencies
