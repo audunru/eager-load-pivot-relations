@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.1](https://github.com/audunru/eager-load-pivot-relations/compare/v3.0.0...v3.0.1) (2024-05-20)
+
+
+### Miscellaneous Chores
+
+* parallel php-cs-fixer ([9dbe61e](https://github.com/audunru/eager-load-pivot-relations/commit/9dbe61e899083d734c60fab228649f20e492170a))
+* update dependencies ([40189e2](https://github.com/audunru/eager-load-pivot-relations/commit/40189e2ef406dc21a91d33078fef81b6d2908f05))
+
 ## [3.0.0](https://github.com/audunru/eager-load-pivot-relations/compare/v2.0.1...v3.0.0) (2024-04-07)
 
 
