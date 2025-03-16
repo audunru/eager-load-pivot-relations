@@ -1,5 +1,21 @@
 # Changelog
 
+## [4.0.0](https://github.com/audunru/eager-load-pivot-relations/compare/v3.0.2...v4.0.0) (2025-03-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* laravel 12 support ([#24](https://github.com/audunru/eager-load-pivot-relations/issues/24))
+
+### Features
+
+* laravel 12 support ([#24](https://github.com/audunru/eager-load-pivot-relations/issues/24)) ([eff895c](https://github.com/audunru/eager-load-pivot-relations/commit/eff895cd5d2ab497087c2c4b6ad26acc922dc4fa))
+
+
+### Miscellaneous Chores
+
+* rename master branch to main ([23df6a6](https://github.com/audunru/eager-load-pivot-relations/commit/23df6a6055e01c92c4c2c32f9f788fa3bba7d11f))
+
 ## [3.0.2](https://github.com/audunru/eager-load-pivot-relations/compare/v3.0.1...v3.0.2) (2025-02-01)
 
 
