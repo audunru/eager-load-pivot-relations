@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/audunru/eager-load-pivot-relations/compare/v4.0.1...v4.0.2) (2025-11-15)
+
+
+### Bug Fixes
+
+* force semantic release ([a39e270](https://github.com/audunru/eager-load-pivot-relations/commit/a39e2703006c41752bf765174faa0520e7ee7f00))
+
 # Changelog
 
 ## [4.0.0](https://github.com/audunru/eager-load-pivot-relations/compare/v3.0.2...v4.0.0) (2025-03-16)
