@@ -4,12 +4,15 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    groups:
+      all-dependencies:
+        patterns:
+          - "*"
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "monthly"
     groups:
-      production-dependencies:
-        dependency-type: "production"
-      development-dependencies:
-        dependency-type: "development"
+      all-dependencies:
+        patterns:
+          - "*"
