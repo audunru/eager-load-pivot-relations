@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/audunru/eager-load-pivot-relations/compare/v4.0.2...v4.1.0) (2026-03-24)
+
+
+### Features
+
+* laravel 13 support ([#51](https://github.com/audunru/eager-load-pivot-relations/issues/51)) ([f3b9f10](https://github.com/audunru/eager-load-pivot-relations/commit/f3b9f10edd83f609ac1d9349a68cb210f46a21b0))
+
 ## [4.0.2](https://github.com/audunru/eager-load-pivot-relations/compare/v4.0.1...v4.0.2) (2025-11-15)
 
 
