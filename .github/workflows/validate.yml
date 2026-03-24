@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  commitlint:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Validate Pull Request Title
@@ -19,11 +19,6 @@ jobs:
 
       - name: Validate commit messages
         uses: wagoid/commitlint-github-action@v6
-
-  php:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
 
       - name: Setup PHP with PECL extension
         uses: shivammathur/setup-php@v2
