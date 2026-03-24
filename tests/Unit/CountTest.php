@@ -12,7 +12,7 @@ class CountTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testItCanUseWithCountPivotRelations()
+    public function test_it_can_use_with_count_pivot_relations()
     {
         $this->markTestSkipped('This could be a new feature, see #6');
 
@@ -38,7 +38,7 @@ class CountTest extends TestCase
         $this->assertSame($tires, $user->cars[0]->pivot->tires_count);
     }
 
-    public function testItCanUseLoadCountPivotRelations()
+    public function test_it_can_use_load_count_pivot_relations()
     {
         $this->markTestSkipped('This could be a new feature, see #6');
 

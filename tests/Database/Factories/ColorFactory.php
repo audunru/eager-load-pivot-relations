@@ -6,7 +6,7 @@ use audunru\EagerLoadPivotRelations\Tests\Models\Color;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\audunru\EagerLoadPivotRelations\Tests\Models\Color>
+ * @extends Factory<Color>
  */
 class ColorFactory extends Factory
 {

@@ -2,6 +2,8 @@
 
 namespace audunru\EagerLoadPivotRelations;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -11,9 +13,8 @@ class EagerLoadPivotBelongsToMany extends BelongsToMany
     /**
      * Execute the query as a "select" statement.
      *
-     * @param array $columns
-     *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @param  array  $columns
+     * @return Collection
      */
     public function get($columns = ['*'])
     {
@@ -50,8 +51,7 @@ class EagerLoadPivotBelongsToMany extends BelongsToMany
     /**
      * Get the pivot eager load relations.
      *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     *
+     * @param  Builder  $builder
      * @return array
      */
     protected function getPivotEagerLoads($builder)

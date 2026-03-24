@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
- * @property int        $id
- * @property int        $car_id
- * @property int        $color_id
- * @property int        $user_id
- * @property Car|null   $car
+ * @property int $id
+ * @property int $car_id
+ * @property int $color_id
+ * @property int $user_id
+ * @property Car|null $car
  * @property Color|null $color
- * @property User|null  $user
+ * @property User|null $user
  *
  * @method static \audunru\EagerLoadPivotRelations\Tests\Database\Factories\CarUserFactory factory(...$parameters)
- * @method static Builder|CarUser                                                          newModelQuery()
- * @method static Builder|CarUser                                                          newQuery()
- * @method static Builder|CarUser                                                          query()
+ * @method static Builder|CarUser newModelQuery()
+ * @method static Builder|CarUser newQuery()
+ * @method static Builder|CarUser query()
  *
  * @mixin \Eloquent
  */
@@ -28,7 +28,9 @@ class CarUser extends Pivot
     use HasFactory;
 
     public $incrementing = true;
+
     protected $table = 'car_user';
+
     protected $fillable = [
         'car_id',
         'color_id',

@@ -7,7 +7,7 @@ use audunru\EagerLoadPivotRelations\Tests\Models\Car;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\audunru\EagerLoadPivotRelations\Tests\Models\Car>
+ * @extends Factory<Car>
  */
 class CarFactory extends Factory
 {
@@ -16,7 +16,7 @@ class CarFactory extends Factory
     public function definition()
     {
         return [
-            'model'    => $this->faker->words(rand(2, 4), true),
+            'model' => $this->faker->words(rand(2, 4), true),
             'brand_id' => function () {
                 return Brand::factory()->create()->id;
             },

@@ -7,19 +7,20 @@ use audunru\EagerLoadPivotRelations\Tests\Database\Factories\CarFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
- * @property int                             $id
- * @property string                          $model
- * @property string                          $make
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property User[]|null                     $users
+ * @property int $id
+ * @property string $model
+ * @property string $make
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
+ * @property User[]|null $users
  *
  * @method static \audunru\EagerLoadPivotRelations\Tests\Database\Factories\CarFactory factory(...$parameters)
- * @method static Builder|Car                                                          newModelQuery()
- * @method static Builder|Car                                                          newQuery()
- * @method static Builder|Car                                                          query()
+ * @method static Builder|Car newModelQuery()
+ * @method static Builder|Car newQuery()
+ * @method static Builder|Car query()
  *
  * @mixin \Eloquent
  */
@@ -29,6 +30,7 @@ class Car extends Model
     use HasFactory;
 
     protected $table = 'cars';
+
     protected $fillable = [
         'model',
         'brand_id',
