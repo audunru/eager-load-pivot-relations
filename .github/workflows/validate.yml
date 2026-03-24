@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  commitlint:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Validate Pull Request Title
@@ -20,16 +20,11 @@ jobs:
       - name: Validate commit messages
         uses: wagoid/commitlint-github-action@v6
 
-  php:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
       - name: Setup PHP with PECL extension
         uses: shivammathur/setup-php@v2
         with:
-          php-version: "8.2"
-          # Taken from https://github.com/kirschbaum-development/laravel-test-runner-container/blob/master/8.2/Dockerfile
+          php-version: "8.3"
+          # Taken from https://github.com/kirschbaum-development/laravel-test-runner-container/blob/master/8.3/Dockerfile
           extensions: mbstring, mysql, xml, xsl, zip, curl, bcmath, intl, bz2
 
       - name: Install composer dependencies

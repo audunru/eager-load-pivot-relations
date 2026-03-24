@@ -18,18 +18,16 @@ class TestCase extends BaseTestCase
         parent::setUp();
     }
 
-    protected function getPackageProviders($app)
-    {
-    }
+    protected function getPackageProviders($app) {}
 
     protected function getEnvironmentSetUp($app)
     {
-        (new CreateUsersTable())->up();
-        (new CreatePasswordResetsTable())->up();
-        (new CreateBrandsTable())->up();
-        (new CreateCarsTable())->up();
-        (new CreateColorsTable())->up();
-        (new CreateCarUserTable())->up();
-        (new CreateTiresTable())->up();
+        (new CreateUsersTable)->up();
+        (new CreatePasswordResetsTable)->up();
+        (new CreateBrandsTable)->up();
+        (new CreateCarsTable)->up();
+        (new CreateColorsTable)->up();
+        (new CreateCarUserTable)->up();
+        (new CreateTiresTable)->up();
     }
 }
