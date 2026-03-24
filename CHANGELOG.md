@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/audunru/eager-load-pivot-relations/compare/v4.1.0...v5.0.0) (2026-03-24)
+
+
+### Build System
+
+* composer update ([21c0b7c](https://github.com/audunru/eager-load-pivot-relations/commit/21c0b7cdf18ebfbf66420a0a39f0ffd8e966dcdb))
+
+
+### BREAKING CHANGES
+
+* Laravel 13 and php 8.3 required
+
 # [4.1.0](https://github.com/audunru/eager-load-pivot-relations/compare/v4.0.2...v4.1.0) (2026-03-24)
 
 
