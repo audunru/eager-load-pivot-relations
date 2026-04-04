@@ -1,3 +1,4 @@
 /vendor/
 *.cache
 build/logs/clover.xml
+composer.lock
