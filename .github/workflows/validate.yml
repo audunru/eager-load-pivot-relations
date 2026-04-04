@@ -28,7 +28,7 @@ jobs:
           extensions: mbstring, mysql, xml, xsl, zip, curl, bcmath, intl, bz2
 
       - name: Install composer dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+        run: composer update -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
       - name: Validate PHP code
         run: composer verify
