@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/audunru/eager-load-pivot-relations/compare/v6.0.0...v6.1.0) (2026-05-25)
+
+
+### Features
+
+* add Trivy security scan workflow ([#56](https://github.com/audunru/eager-load-pivot-relations/issues/56)) ([eefb636](https://github.com/audunru/eager-load-pivot-relations/commit/eefb636369ed95835f9010818db70fae9e227f10))
+
 # [6.0.0](https://github.com/audunru/eager-load-pivot-relations/compare/v5.0.0...v6.0.0) (2026-03-24)
 
 
