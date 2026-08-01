@@ -13,7 +13,7 @@ jobs:
   coverage:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7.0.0
+      - uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
@@ -31,4 +31,4 @@ jobs:
         run: composer test-with-coverage
 
       - name: Upload coverage results to Coveralls
-        uses: coverallsapp/github-action@v2
+        uses: coverallsapp/github-action@v2.3.6
