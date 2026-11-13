@@ -28,6 +28,24 @@ class PivotTest extends TestCase
         $this->assertInstanceOf(Color::class, $user->cars[0]->pivot->color);
     }
 
+    public function test_it_can_use_chaperone_with_pivot_relations()
+    {
+        $user = User::factory()->create();
+        $pivots = CarUser::factory(['user_id' => $user->id])->count(2)->create();
+
+        $user = User::with([
+            'chaperonedCars',
+            'chaperonedCars.pivot.color',
+        ])
+            ->find($user->id);
+
+        $car = $user->chaperonedCars[0];
+
+        $this->assertInstanceOf(Color::class, $car->pivot->color);
+        $this->assertSame($user, $car->pivot->user);
+        $this->assertSame($car, $car->pivot->car);
+    }
+
     public function test_it_can_use_load_pivot_relations()
     {
         $user = User::factory()->create();
