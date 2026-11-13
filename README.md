@@ -146,6 +146,65 @@ foreach ($plan->items as $item) {
 }
 ```
 
+## Alternative: chaperone() for back-references
+
+Laravel 13.31.0 and later has `chaperone()` for `BelongsToMany` relations that use a custom pivot model
+([laravel/framework#61152](https://github.com/laravel/framework/pull/61152)).
+With `chaperone()`, Laravel sets the pivot relations that point back to the two models of the relation.
+It uses the models that are already in memory, so it runs no extra query.
+
+```php
+class PlanItem extends \Illuminate\Database\Eloquent\Relations\Pivot
+{
+    protected $table = 'plan_item';
+    public function plan()
+    {
+        return $this->belongsTo('Plan');
+    }
+    public function item()
+    {
+        return $this->belongsTo('Item');
+    }
+    public function unit()
+    {
+        return $this->belongsTo('Unit');
+    }
+}
+class Plan extends \Eloquent
+{
+    public function items()
+    {
+        return $this->belongsToMany('Item', 'plan_item')
+            ->using('PlanItem')
+            ->withPivot('unit_id', 'qty', 'price')
+            ->chaperone();
+    }
+}
+```
+
+Without `chaperone()`, you can use this package to load the back-reference:
+
+```php
+return Plan::with('items.pivot.item')->get();
+```
+
+With `chaperone()`, `Plan::with('items')` is sufficient. Each `$item->pivot->plan` and `$item->pivot->item` is already set.
+
+You still need this package when a pivot relation points to a different model, like `unit`.
+You can use `chaperone()` and this package on the same relation. Add the trait to `Plan`, the model that defines the `items()` relation:
+
+```php
+use audunru\EagerLoadPivotRelations\EagerLoadPivotTrait;
+class Plan extends \Eloquent
+{
+    use EagerLoadPivotTrait;
+}
+```
+
+Then `Plan::with('items.pivot.unit')->get()` loads `unit` with one query, and `chaperone()` sets `plan` and `item` on each pivot.
+
+On Laravel 13.0 to 13.30, `chaperone()` is not available. This package works on all supported Laravel versions, also for back-references.
+
 ## Other Examples and Use-cases
 
 https://github.com/ajcastro/eager-load-pivot-relations-examples
