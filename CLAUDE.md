@@ -27,12 +27,11 @@ None. This package has no service provider, no config and no `spatie/laravel-pac
 
 ## Testing
 
-`tests/TestCase.php` runs the migrations in `tests/Database/Migrations/` in `getEnvironmentSetUp()` (no package providers). Fixtures in `tests/Models/`: `Car` and `User` use the trait and are linked through the custom pivot `CarUser` (`belongsTo` `Color`, `hasMany` `Tire`); `Car::users()` uses `->as('car_user')` to test a custom accessor. Factories are in `tests/Database/Factories/`. Tests in `tests/Unit/`: `PivotTest` (`with`, `load`, `loadMissing`), `PaginateTest`, `CountTest`.
+`tests/TestCase.php` runs the migrations in `tests/Database/Migrations/` in `getEnvironmentSetUp()` (no package providers). Fixtures in `tests/Models/`: `Car` and `User` use the trait and are linked through the custom pivot `CarUser` (`belongsTo` `Color`, `hasMany` `Tire`); `Car::users()` uses `->as('car_user')` to test a custom accessor. `PlainCar` (table `cars`, no trait) is the related model of `User::plainCars()`, to test that only the defining model needs the trait. Factories are in `tests/Database/Factories/`. Tests in `tests/Unit/`: `PivotTest` (`with`, `load`, `loadMissing`), `PaginateTest`, `CountTest`.
 
 ## Conventions / Gotchas
 
 - The pivot must use a custom pivot model (`->using(PivotModel::class)`) that defines the relations, and the foreign keys must be selected with `->withPivot(...)`.
 - `get()` copies a large part of Laravel's `BelongsToMany::get()`. When Laravel changes that method, check that this override still matches it.
 - The pivot eager loads are removed from the main builder before `eagerLoadRelations()` runs, so Eloquent never sees `pivot.*` as an unknown relation (see `getPivotEagerLoads()`).
-- The README example puts the trait on the related model (`Item`). That does not agree with the code: the trait must be on the model that defines the relation.
 - Each pivot relation is loaded from `head($pivots)->query()`, so all pivots of one query must be the same pivot class.
