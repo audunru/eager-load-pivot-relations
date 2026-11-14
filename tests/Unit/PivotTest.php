@@ -5,6 +5,7 @@ namespace audunru\EagerLoadPivotRelations\Tests\Unit;
 use audunru\EagerLoadPivotRelations\Tests\Models\Car;
 use audunru\EagerLoadPivotRelations\Tests\Models\CarUser;
 use audunru\EagerLoadPivotRelations\Tests\Models\Color;
+use audunru\EagerLoadPivotRelations\Tests\Models\PlainCar;
 use audunru\EagerLoadPivotRelations\Tests\Models\User;
 use audunru\EagerLoadPivotRelations\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -26,6 +27,21 @@ class PivotTest extends TestCase
 
         $this->assertInstanceOf(Car::class, $user->cars[0]);
         $this->assertInstanceOf(Color::class, $user->cars[0]->pivot->color);
+    }
+
+    public function test_it_can_use_with_pivot_relations_when_only_parent_uses_trait()
+    {
+        $user = User::factory()->create();
+        $pivots = CarUser::factory(['user_id' => $user->id])->count(2)->create();
+
+        $user = User::with([
+            'plainCars',
+            'plainCars.pivot.color',
+        ])
+            ->find($user->id);
+
+        $this->assertInstanceOf(PlainCar::class, $user->plainCars[0]);
+        $this->assertInstanceOf(Color::class, $user->plainCars[0]->pivot->color);
     }
 
     public function test_it_can_use_chaperone_with_pivot_relations()
