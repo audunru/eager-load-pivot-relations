@@ -74,6 +74,13 @@ class User extends Authenticatable
             ->chaperone();
     }
 
+    public function plainCars()
+    {
+        return $this->belongsToMany(PlainCar::class, 'car_user', 'user_id', 'car_id')
+            ->withPivot('color_id')
+            ->using(CarUser::class);
+    }
+
     protected static function newFactory()
     {
         return UserFactory::new();

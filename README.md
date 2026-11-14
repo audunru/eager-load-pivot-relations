@@ -42,20 +42,20 @@ plan_item (pivot for plans and items)
 ```php
 class Unit extends \Eloquent {
 }
-use audunru\EagerLoadPivotRelations\EagerLoadPivotTrait;
 class Item extends \Eloquent
 {
-    // Use the trait here to override eloquent builder.
-    // It is used in this model because it is the relation model defined in
-    // Plan::items() relation.
-    use EagerLoadPivotTrait;
     public function plans()
     {
         return $this->belongsToMany('Plan', 'plan_item');
     }
 }
+use audunru\EagerLoadPivotRelations\EagerLoadPivotTrait;
 class Plan extends \Eloquent
 {
+    // Use the trait on the model that defines the belongsToMany() relation.
+    // Laravel calls newBelongsToMany() on this model when it creates the
+    // Plan::items() relation, and the trait overrides that method.
+    use EagerLoadPivotTrait;
     public function items()
     {
         return $this->belongsToMany('Item', 'plan_item')
@@ -77,6 +77,8 @@ class PlanItem extends \Illuminate\Database\Eloquent\Relations\Pivot
 
 From the code above, `plans` and `items` has `Many-to-Many` relationship. Each item in a plan has a selected `unit`, unit of measurement.
 It also possible for other scenario that the pivot model will have other many relations.
+
+`Item` does not need the trait for `Plan::with('items.pivot.unit')`. If you also eager load pivot relations through `Item::plans()`, for example `Item::with('plans.pivot.unit')`, add the trait to `Item` too.
 
 ## Eager Loading Pivot Relations
 
@@ -108,8 +110,10 @@ You can customize the **"pivot accessor"**, so instead of using the keyword `piv
 Just chain the `as()` method in the definition of the `BelongsToMany` relation.
 
 ```php
+use audunru\EagerLoadPivotRelations\EagerLoadPivotTrait;
 class Plan extends \Eloquent
 {
+    use EagerLoadPivotTrait;
     public function items()
     {
         return $this->belongsToMany('Item', 'plan_item')
@@ -120,17 +124,8 @@ class Plan extends \Eloquent
 }
 ```
 
-Make sure we also use the trait
-to our main model which is the `Plan` model, because the package needs to acess
-the belongsToMany relation (`items` relation) to recognize the used pivot acessor.
-
-```php
-use audunru\EagerLoadPivotRelations\EagerLoadPivotTrait;
-class Plan extends \Eloquent
-{
-    use EagerLoadPivotTrait;
-}
-```
+The trait on `Plan` is sufficient, as in the example above. The package reads the pivot accessor
+from the `items` relation, which `Plan` defines.
 
 So instead of using `pivot`, we can eager load it by defined pivot accessor `planItem`.
 
